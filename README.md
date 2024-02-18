@@ -1,2 +1,8 @@
-# Square-Ball-a-C-game-project
-Um Jogo de colisão em blocos criado como componente avaliativo da disciplina TEC499 - MI de Sistema Digitais da UEFS - Semestre 2023.2
+# Projeto de Jogo Brick Break em Linguagem C
+
+## Problema III - TEC499 - MI Sistemas Digitais - 2023.2
+
+Professor: Anfranserai Morais Dias
+
+Grupo: Antonio Vitor Costa da Silva, João Vitor Cedraz, Luis Felipe Pereira de Carvalho e Wesley Ramos dos Santos
+
