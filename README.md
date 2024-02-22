@@ -130,13 +130,14 @@ Visual Studio Code (VS Code): é um editor de código-fonte gratuito e de códig
 
 O fluxograma abaixo apresenta a maneira como o projeto do jogo foi elaborado:
 
-imagem do fluxograma
+![1708633969184](image/README/1708633969184.png)
 
 O processo de funcionamento do jogo acontece da seguinte forma:
 
 **Início:**
 
 * A bola é iniciada aleatoriamente no meio da tela.
+* A raquete é posicionada na parte inferior no meio da tela.
 
 **Movimento da bola:**
 
