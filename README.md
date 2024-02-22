@@ -4,7 +4,7 @@
 
 Professor: Anfranserai Morais Dias
 
-Grupo: [Antonio Vitor Costa da Silva](https://github.com/avcsilva), [João Vitor Cedraz](https://github.com/JvCedrazC), Luis Felipe Pereira de Carvalho e [Wesley Ramos dos Santos](https://github.com/WesleyRds)
+Grupo: [Antonio Vitor Costa da Silva](https://github.com/avcsilva), [João Vitor Cedraz](https://github.com/JvCedrazC), [Luis Felipe Pereira de Carvalho]() e [Wesley Ramos dos Santos](https://github.com/WesleyRds)
 
 ## Seções
 
@@ -199,7 +199,6 @@ imagens
 ## Documentação utilizada:
 
 [**Manual de usuário da placa de desenvolvimento DE1-SoC:** ](https://www.terasic.com.tw/cgi-bin/page/archive.pl?Language=English&CategoryNo=167&No=836&PartNo=4#contents)Contém todas as informações relacionadas ao funcionamento da DE1-SoC, bem como são realizadas a integração da placa com demais recursos (video externo e acelerômetro).
-
 
 ## Testes Realizados
 
