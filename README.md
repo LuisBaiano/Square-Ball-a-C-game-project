@@ -25,7 +25,7 @@ O projeto consiste em um jogo em que uma bola colide e quebra o blocos posiciona
 
 ## Hardware Utilizado
 
-O projeto em questão faz uso de hardware específico para seu desenvolvimento, sendo empregada uma placa de desenvolvimento DE1-SoC da terasIC . Ela é  ideal para diversos projetos de prototipagem e desenvolvimento de sistemas embarcados. Ela combina um FPGA Cyclone V SoC da Intel com um processador dual-core ARM Cortex-A9, oferecendo uma plataforma completa e flexível para implementação de hardware e software.
+O projeto em questão faz uso de hardware específico para seu desenvolvimento, sendo empregada uma placa de desenvolvimento DE1-SoC da terasIC . Ela é  ideal para diversos projetos de prototipagem e desenvolvimento de sistemas embarcados. Ela combina um FPGA Cyclone V SoC da Intel com um processador dual-core ARM Cortex-A9, oferecendo uma plataforma completa e flexível para implementação de hardware e software. Seu acesso para a execução do jogo é feito através da conexão via FHTTP (ethernet) no terminal de um computador.
 
 ### terasIC DE1-SoC - Especificações
 
@@ -126,6 +126,39 @@ Visual Studio Code (VS Code): é um editor de código-fonte gratuito e de códig
 
 ## Metodologia
 
+### Fluxograma do funcionamento do sistema
+
+O fluxograma abaixo apresenta a maneira como o sistema se comporta de forma geral durante a execução do projeto:
+
+![1708688254235](image/README/1708688254235.png)
+
+**1. Inicialização:**
+
+* Placa de desenvolvimento (FPGA)
+* Monitor CRT
+* Computador
+
+**2. Conexão:**
+
+* O computador é conectado à FPGA para execução do jogo.
+
+**3. Inicialização do jogo:**
+
+* São inicializadas variáveis e elementos do jogo através do terminal.
+* Inicio da execução do jogo na FPGA.
+
+**4. Jogatina:**
+
+* Segue-se o fluxo do jogo ([Ver imagem fluxograma abaixo](#Fluxograma-do-funcionamento-do-jogo)).
+
+**5. Encerramento:**
+
+* Encerra-se a execução do jogo no terminal caso o usuário não queira jogar novamente.
+
+**6. Desconexão e desligamento:**
+
+* Desconecta-se e desliga-se devidamente os periféricos .
+
 ### Fluxograma do funcionamento do jogo
 
 O fluxograma abaixo apresenta a maneira como o projeto do jogo foi elaborado:
@@ -154,9 +187,10 @@ O processo de funcionamento do jogo acontece da seguinte forma:
 
 * Quebrar todos os blocos presentes na tela.
 
-**Pausa e retomada:**
+**Pausa, retomada e reinicio:**
 
-* O jogador pode pausar e retomar o jogo a qualquer momento pressionando a tecla (especificar tecla).
+* O jogador pode pausar e retomar o jogo a qualquer momento pressionando o botão 1.
+* O jogador pode resetar o jogo pressionando o botão 4.
 
 ### Solução do Problema
 
