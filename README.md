@@ -12,9 +12,9 @@ Grupo: [Antonio Vitor Costa da Silva](https://github.com/avcsilva), [João Vitor
 2. [Hardware Utilizado](#hardware-utilizado)
 3. [Software Utilizado](#software-utilizado)
 4. [Metodologia](#metodologia)
-5. [Testes realizados](#testes-realizados)
-6. [Problemas](#problemas)
-7. [Documentação Utilizada](#documentação-utilizada)
+5. [Documentação Utilizada](#documentação-utilizada)
+6. [Testes realizados](#testes-realizados)
+7. [Problemas](#problemas)
 8. [Execução do Projeto](#execução-do-projeto)
 
 ## Introdução
@@ -226,11 +226,11 @@ As bibliotecas **Stdio** **e** **Stdbool** fornecem funções para diversas tare
 
 ### Telas do jogo
 
-Abaixo são apresentadas as telas de inicio, execução do jogo, pausa e fim do jogo com vitória e derrota:
+Abaixo são apresentadas as telas de inicio, execução do jogo, pausa e fim do jogo com vitória (You Win!) e derrota (You Lose!) e pause.
 
-imagens
+![1708711366769](image/README/1708711366769.png)![1708711382866](image/README/1708711382866.png)
 
-## Documentação utilizada:
+## Documentação utilizada
 
 [**Manual de usuário da placa de desenvolvimento DE1-SoC:** ](https://www.terasic.com.tw/cgi-bin/page/archive.pl?Language=English&CategoryNo=167&No=836&PartNo=4#contents)Contém todas as informações relacionadas ao funcionamento da DE1-SoC, bem como são realizadas a integração da placa com demais recursos (video externo e acelerômetro).
 
@@ -238,7 +238,15 @@ imagens
 
 Abaixo são apresentados alguns testes realizados com o proposito de verificar o funcionamento do projeto:
 
-imagens
+![1708711980034](image/README/1708711980034.png)
+
+Na imagem 1 é apresentada a tela de inicio com a mensagem: "---START---!", na imagem 2 é apresentada o pause durante o jogo e na terceira imagem é apresentado a tela enquanto o jogo está sendo jogado.
+
+No link a seguir são apresentados GIFs do funcionamento do jogo: [link aqui](https://imgur.com/a/LQylspQ)
+
+## Problemas
+
+Durante o desenvolvimento do jogo, foi apresentado como problema que, no momento em que a bola passa por  baixo da raquete, a bola ricocheteia entre a parte inferior da raquete e a parte inferior da tela do jogo (chão) antes de encerrar o jogo como derrota (YOU LOSE!).
 
 ## Execução do jogo
 
