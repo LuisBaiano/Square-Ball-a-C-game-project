@@ -15,7 +15,7 @@ Grupo: [Antonio Vitor Costa da Silva](https://github.com/avcsilva), [João Vitor
 5. [Documentação Utilizada](#documentação-utilizada)
 6. [Testes realizados](#testes-realizados)
 7. [Problemas](#problemas)
-8. [Execução do Projeto](#execução-do-projeto)
+8. [Execução do jogo](#execução-do-jogo)
 
 ## Introdução
 
