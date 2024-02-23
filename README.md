@@ -198,23 +198,20 @@ Para a soluição do problema foi utilizada a linguagem de programação C, bem 
 
 #### Bibliotecas utilizadas
 
-Para auxiliar no desenvolvimento do código em C do Jogo foram utilizadas as seguintes bibliotecas: **Stdio**, **Stdlib**, **String**, **Signal**, **Unistd**, **Stdbool**, **Intelfpgaup/KEY**, **Intelfpgaup/video** e **Intelfpgaup/aceel**.
+Para auxiliar no desenvolvimento do código em C do Jogo foram utilizadas as seguintes bibliotecas: **Stdio**, **Signal**, **Stdbool**, **Intelfpgaup/KEY**, **Intelfpgaup/video** e **Intelfpgaup/aceel**.
 
 ```
 ├── stdio.h
-├── stdlib.h
-|── string.h
 ├── signal.h
 ├── stdbool.h
 ├── intelfpgaup/KEY.h
 ├── intelfpgaup/video.h
 ├── intelfpgaup/aceel.h
-└── unistd.h
 ```
 
-As bibliotecas **Stdio**, **Stdlib**, **String**, **Unistd e** **Stdbool** fornecem funções para diversas tarefas em C, como manipulação de entrada/saída, alocação de memória, manipulação de strings, operações de baixo nível em sistemas Unix-like e tipos booleanos.
+As bibliotecas **Stdio** **e** **Stdbool** fornecem funções para diversas tarefas em C, como manipulação de entrada/saída, alocação de memória, manipulação de strings, operações de baixo nível em sistemas Unix-like e tipos booleanos.
 
-**signal:** em C fornece funções para gerenciar sinais em um processo. Sinais são notificações assíncronas enviadas ao processo pelo sistema operacional ou por outros processos. Eles podem ser usados para indicar eventos como:
+**Signal:** em C fornece funções para gerenciar sinais em um processo. Sinais são notificações assíncronas enviadas ao processo pelo sistema operacional ou por outros processos. Eles podem ser usados para indicar eventos como:
 
 * **Entrada do usuário:** pressionamento de teclas, cliques do mouse
 * **Interrupções de hardware:** divisão por zero, overflow aritmético
@@ -244,7 +241,6 @@ Abaixo são apresentados alguns testes realizados com o proposito de verificar o
 imagens
 
 ## Execução do jogo
-
 
 Em posse do código desse repositório e de uma placa de desenvolvimento DE1-SoC conectada a um monitor, para testar o funcionamento do programa, conecte a placa com um computador e execute o seguinte comando no terminal:
 
