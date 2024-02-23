@@ -29,7 +29,7 @@ O projeto em questão faz uso de hardware específico para seu desenvolvimento, 
 
 ### teasIC DE1-SoC - Especificações
 
-![1708604672833](image/README/1708604672833.png)
+![1708714739472](image/README/1708714739472.png)
 
 | Categoria                               | Detalhes                                       |
 | --------------------------------------- | ---------------------------------------------- |
@@ -149,7 +149,7 @@ O fluxograma abaixo apresenta a maneira como o sistema se comporta de forma gera
 
 **4. Jogatina:**
 
-* Segue-se o fluxo do jogo ([Ver imagem fluxograma abaixo](#Fluxograma-do-funcionamento-do-jogo)).
+* Segue-se o fluxo do jogo ([Ver imagem do fluxograma abaixo](#Fluxograma-do-funcionamento-do-jogo)).
 
 **5. Encerramento:**
 
@@ -189,8 +189,8 @@ O processo de funcionamento do jogo acontece da seguinte forma:
 
 **Pausa, retomada e reinicio:**
 
-* O jogador pode pausar e retomar o jogo a qualquer momento pressionando o botão 1.
-* O jogador pode resetar o jogo pressionando o botão 4.
+* O jogador pode pausar e retomar o jogo a qualquer momento pressionando o botão 1 ([Ver imagem da placa](#teasIC-DE1-SoC-Especificações)).
+* O jogador pode resetar o jogo pressionando o botão 4 ([Ver imagem da placa](#teasIC-DE1-SoC-Especificações)).
 
 ### Solução do Problema
 
@@ -242,7 +242,7 @@ Abaixo são apresentados alguns testes realizados com o proposito de verificar o
 
 Na imagem 1 é apresentada a tela de inicio com a mensagem: "---START---!", na imagem 2 é apresentada o pause durante o jogo e na terceira imagem é apresentado a tela enquanto o jogo está sendo jogado.
 
-No link a seguir são apresentados GIFs do funcionamento do jogo: [link aqui](https://imgur.com/a/LQylspQ)
+No link a seguir são apresentados videos do funcionamento do jogo: [link aqui](https://imgur.com/a/LQylspQ)
 
 ## Problemas
 
