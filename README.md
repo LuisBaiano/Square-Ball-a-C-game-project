@@ -27,7 +27,7 @@ O projeto consiste em um jogo em que uma bola colide e quebra o blocos posiciona
 
 O projeto em questão faz uso de hardware específico para seu desenvolvimento, sendo empregada uma placa de desenvolvimento DE1-SoC da terasIC . Ela é  ideal para diversos projetos de prototipagem e desenvolvimento de sistemas embarcados. Ela combina um FPGA Cyclone V SoC da Intel com um processador dual-core ARM Cortex-A9, oferecendo uma plataforma completa e flexível para implementação de hardware e software. Seu acesso para a execução do jogo é feito através da conexão via FHTTP (ethernet) no terminal de um computador.
 
-### terasIC DE1-SoC - Especificações
+### teasIC DE1-SoC - Especificações
 
 ![1708604672833](image/README/1708604672833.png)
 
@@ -198,7 +198,7 @@ Para a soluição do problema foi utilizada a linguagem de programação C, bem 
 
 #### Bibliotecas utilizadas
 
-Para auxiliar no desenvolvimento do código em C do Jogo foram utilizadas as seguintes bibliotecas: **Stdio**, **Stdlib**, **String**, **Signal**, **Unistd**, **Stdbool**, **Intelfpgaup/KEY**, **intelfpgaup/video** e **intelfpgaup/aceel**.
+Para auxiliar no desenvolvimento do código em C do Jogo foram utilizadas as seguintes bibliotecas: **Stdio**, **Stdlib**, **String**, **Signal**, **Unistd**, **Stdbool**, **Intelfpgaup/KEY**, **Intelfpgaup/video** e **Intelfpgaup/aceel**.
 
 ```
 ├── stdio.h
@@ -211,6 +211,8 @@ Para auxiliar no desenvolvimento do código em C do Jogo foram utilizadas as seg
 ├── intelfpgaup/aceel.h
 └── unistd.h
 ```
+
+As bibliotecas **Stdio**, **Stdlib**, **String**, **Unistd e** **Stdbool** fornecem funções para diversas tarefas em C, como manipulação de entrada/saída, alocação de memória, manipulação de strings, operações de baixo nível em sistemas Unix-like e tipos booleanos.
 
 **signal:** em C fornece funções para gerenciar sinais em um processo. Sinais são notificações assíncronas enviadas ao processo pelo sistema operacional ou por outros processos. Eles podem ser usados para indicar eventos como:
 
@@ -242,3 +244,12 @@ Abaixo são apresentados alguns testes realizados com o proposito de verificar o
 imagens
 
 ## Execução do jogo
+
+
+Em posse do código desse repositório e de uma placa de desenvolvimento DE1-SoC conectada a um monitor, para testar o funcionamento do programa, conecte a placa com um computador e execute o seguinte comando no terminal:
+
+```
+make all
+```
+
+#### [Voltar ao topo](#Projeto-de-jogo-Brick-Break-em-Linguagem-C)
