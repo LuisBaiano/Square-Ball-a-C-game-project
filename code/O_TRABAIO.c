@@ -15,28 +15,18 @@
 //#include <string.h>
 //#include <unistd.h>
 
+//Variável global para encerrar o programa
 volatile sig_atomic_t sair;
 void catchSIGINT(int signum) { sair = 1; }
 
 
 #define video_BLACK 0x00
-#define LARGURA_TELA 319
-#define ALTURA_TELA 239
-#define LINHA 9
-#define COLUNA 9
+#define LARGURA_TELA 319 // Tamanho da tela VGA
+#define ALTURA_TELA 239 // Tamanho da tela VGA
+#define LINHA 9 // Quantidade de linhas de blocos
+#define COLUNA 9 // Quantidade de colunas de blocos
 
-typedef struct {
-  int tamanho;
-  int pos_x, pos_y;
-  short cor;
-} Projetil;
-
-typedef struct {
-  int tamanho_x, tamanho_y;
-  int pos_x;
-  short cor;
-} Raquete;
-
+// Estrutura de dados para os blocos
 typedef struct {
   int tam_x, tam_y; // Tamanho do bloco (o quanto se deve incrementar o espaço
                     // na video_box pra criar o bloco)
@@ -45,11 +35,11 @@ typedef struct {
   bool quebrado;    // Se o bloco está já quebrado ou não
 } Bloco;
 
-void interpreta_botoes(int *botoes, bool *pause, bool *reset);
-void gera_blocos(Bloco blocos[COLUNA][LINHA], int *quant_blocos);
-void exibe_blocos(Bloco blocos[COLUNA][LINHA]);
+void interpreta_botoes(int *botoes, bool *pause, bool *reset); // Função para interpretar os botões e gerar sinal de pause ou reset
+void gera_blocos(Bloco blocos[COLUNA][LINHA], int *quant_blocos); // Função para gerar os blocos
+void exibe_blocos(Bloco blocos[COLUNA][LINHA]); // Função para exibir os blocos
 void detecta_colisao(Bloco blocos[COLUNA][LINHA], int *quant_blocos, bool *vitoria, bool *derrota, 
-                    int bolaX, int bolaY, int *move_bolaX, int *move_bolaY, int *score);
+                    int bolaX, int bolaY, int *move_bolaX, int *move_bolaY, int *score); // Função para detectar colisão com os blocos
 
 int main(int argc, char *argv[]) {
     signal(SIGINT, catchSIGINT);
@@ -62,29 +52,32 @@ int main(int argc, char *argv[]) {
     Bloco blocos[COLUNA][LINHA]; // 9x9 blocos
 
     video_erase();
+
+    // Inicialização e calibração do acelerômetro
     accel_init();
     accel_format(1, 2);
     accel_calibrate();
 
-    int botoes, quant_blocos;
-    bool pause = false, reset = false, fim_de_jogo = false, vitoria = false, derrota = false;
+    int botoes, quant_blocos; 
+    bool pause = false, reset = false, fim_de_jogo = false, vitoria = false, derrota = false; // Variáveis de controle
     int acel_rdy, acel_tap, acel_dtap, acel_x, acel_y, acel_z, acel_mg;
-    int raquete_xi = (319 / 2) - 25;
-    int raquete_xf = (319 / 2) + 25;
-    int raquete_yi = 210 - 1;
-    int raquete_yf = 210 + 1;
-    int bolaX = (319 / 2);
-    int bolaY = (200);
-    int move_bolaX = 1;
-    int move_bolaY = -1;
-    int score = 0;
-    char str[15];
-    char comeco_str[] = "---PLAY---!";
-    char vitoria_str[] = "YOU WIN!";
-    char derrota_str[] = "YOU LOSE!";
-    char pause_str[] = "PAUSE!";
-    char fim_str[] = "RESET?";
+    int raquete_xi = (319 / 2) - 25; // Posição do início X da barra
+    int raquete_xf = (319 / 2) + 25; // Posição do final X da barra
+    int raquete_yi = 210 - 1; // Posição do início Y da barra
+    int raquete_yf = 210 + 1; // Posição do final Y da barra
+    int bolaX = (319 / 2); // Posição X inicial da bola
+    int bolaY = (200); // Posição Y inicial da bola
+    int move_bolaX = 1; // Sentido de movimentação da bola em X
+    int move_bolaY = -1; // Sentido de movimentação da bola em Y
+    int score = 0; // Pontuação do jogador
+    char str[15]; // String para exibição da pontuação
+    char comeco_str[] = "---PLAY---!"; // String para exibição de início de jogo
+    char vitoria_str[] = "YOU WIN!"; // String para exibição de vitória
+    char derrota_str[] = "YOU LOSE!"; // String para exibição de derrota
+    char pause_str[] = "PAUSE!"; // String para exibição de pausa
+    char fim_str[] = "RESET?"; // String para exibição de possível reset
 
+    // Início do jogo
     while (!sair) {
         printf("Tela inicial do jogo.\n");
         video_clear();
@@ -94,7 +87,7 @@ int main(int argc, char *argv[]) {
 
         printf("Aguardando início do jogo...\n");
         pause = true;
-        while (pause && !sair) interpreta_botoes(&botoes, &pause, &reset);
+        while (pause && !sair) interpreta_botoes(&botoes, &pause, &reset); // Aguarda início do jogo
         printf("Inicializando elementos de jogo...\n");
         
         video_erase();
@@ -103,6 +96,7 @@ int main(int argc, char *argv[]) {
         derrota = false;
         reset = false;
 
+        // Inicialização de elementos de jogo
         gera_blocos(blocos, &quant_blocos);
         printf("%d blocos gerados...\n", quant_blocos);
         raquete_xi = (319 / 2) - 25;
@@ -120,7 +114,10 @@ int main(int argc, char *argv[]) {
 
 
         printf("Iniciando jogo...\n");
+
+        // Início rodada de jogo
         while (!reset && !fim_de_jogo && !sair){
+            // Início verificação de pause e/ou reset
             interpreta_botoes(&botoes, &pause, &reset);
             if (pause) {
             printf("Programa pausado.\n");
@@ -129,6 +126,7 @@ int main(int argc, char *argv[]) {
             while (pause && !sair && !reset) interpreta_botoes(&botoes, &pause, &reset);
             video_erase();
             }
+            // Fim verificação de pause e/ou reset
             
             video_clear();
             // Leitura do acelerômetro para movimentação da raquete (barra)
@@ -138,22 +136,23 @@ int main(int argc, char *argv[]) {
             video_box(0, 0, LARGURA_TELA, ALTURA_TELA,
                     video_BLACK); // Desenha o fundo da tela
 
-            video_box(bolaX, bolaY, bolaX + 2, bolaY + 2, video_WHITE);
-            // video_box(ALTURA_TELA - 2, LARGURA_TELA - 2, 2, 2, video_BLACK); //
-            // Desenha a área útil e visível do jogo, criando bordas com o fundo da tela
-            if (acel_x > -10 && acel_x < 10) {
+            video_box(bolaX, bolaY, bolaX + 2, bolaY + 2, video_WHITE); // Desenha a bola
+
+            // Início movimentação da barra
+            if (acel_x > -10 && acel_x < 10) { // Validação para evitar trepidação da barra
             } else if (acel_x < 0 && raquete_xi > 7) {
 
             raquete_xi -= 3;
             raquete_xf -= 3;
-            // Desenha o fundo da tela
             } else if (acel_x > 0 && raquete_xf < (319 - 13)) {
 
             raquete_xi += 3;
             raquete_xf += 3;
             } else {
             }
+            // Fim movimentação da barra
 
+            // Início movimentação da bola e detecção de colisão
             if ((bolaX) >= 307 || (bolaX) <= 0) {
             move_bolaX *= -1;
             }
@@ -178,13 +177,14 @@ int main(int argc, char *argv[]) {
 
             bolaX += move_bolaX;
             bolaY += move_bolaY;
+            // Fim movimentação da bola e detecção de colisão
 
-            video_box(raquete_xi, raquete_yi, raquete_xf, raquete_yf, video_WHITE);
+            video_box(raquete_xi, raquete_yi, raquete_xf, raquete_yf, video_WHITE); // Desenha a barra  
 
             detecta_colisao(blocos, &quant_blocos, &vitoria, &derrota, bolaX, bolaY,
-                            &move_bolaX, &move_bolaY, &score);
-            sprintf(str, "Score: %d", score);
-            video_text(4, 54, str);
+                            &move_bolaX, &move_bolaY, &score); // Detecta colisão da bola com os blocos
+            sprintf(str, "Score: %d", score); // Atualiza a pontuação e exibe em terminal
+            video_text(4, 54, str); // Exibe a pontuação
             exibe_blocos(blocos); // Desenha os blocos
 
             video_show();
@@ -192,13 +192,15 @@ int main(int argc, char *argv[]) {
             // Fim movimentação da bola e detecção de colisão
 
        
-            if (vitoria || derrota) fim_de_jogo = true;
+            if (vitoria || derrota) fim_de_jogo = true; // Verifica uma vitória ou derrota
         }
         //Fim rodada de jogo
 
         printf("Evento detectado. Fim de rodada de jogo.\n");
         video_clear();
         video_erase();
+
+        // Início exibição de telas finais do jogo
         if (derrota){
             printf("Derrota! Colisão com o chão!\n");
             video_text(36, 20, derrota_str);
@@ -210,13 +212,15 @@ int main(int argc, char *argv[]) {
             video_text(36, 20, fim_str);
         }
         video_show();
+        // Fim exibição de telas finais do jogo
 
         printf("Aguardando ação do jogador...\n");
         reset = false;
-        while (!reset && !sair) interpreta_botoes(&botoes, &pause, &reset);
+        while (!reset && !sair) interpreta_botoes(&botoes, &pause, &reset); // Aguarda ação do jogador
         video_erase();
         if (reset) printf("Reiniciando jogo...\n");
     }
+    // Fim do jogo
 
     printf("Encerrando...\n");
     KEY_close();
@@ -225,6 +229,8 @@ int main(int argc, char *argv[]) {
     return 0;
 }
 
+/* Função para leitura de entrada dos botões 
+Pause funciona com lógica de alternância */
 void interpreta_botoes(int *botoes, bool *pause, bool *reset) {
   KEY_read(botoes);
   if (*botoes > 7) {
@@ -237,6 +243,7 @@ void interpreta_botoes(int *botoes, bool *pause, bool *reset) {
   else *reset = false;
 }
 
+/* Função para geração dos blocos e contabilização dos blocos gerados */
 void gera_blocos(Bloco blocos[COLUNA][LINHA], int *quant_blocos) {
   int linha, coluna;
   *quant_blocos = 0;
@@ -254,6 +261,7 @@ void gera_blocos(Bloco blocos[COLUNA][LINHA], int *quant_blocos) {
   }
 }
 
+/* Função para exibição dos blocos */
 void exibe_blocos(Bloco blocos[COLUNA][LINHA]) {
   int i;
   int j;
@@ -268,6 +276,7 @@ void exibe_blocos(Bloco blocos[COLUNA][LINHA]) {
   }
 }
 
+/* Função para detecção de colisão com os blocos */
 void detecta_colisao(Bloco blocos[COLUNA][LINHA], int *quant_blocos,
                      bool *vitoria, bool *derrota, int bolaX, int bolaY,
                      int *move_bolaX, int *move_bolaY, int *score) {
@@ -278,7 +287,7 @@ void detecta_colisao(Bloco blocos[COLUNA][LINHA], int *quant_blocos,
   for (i = 0; i < LINHA; i++) {
     for (j = 0; j < COLUNA; j++) {
       if (!blocos[i][j].quebrado) {
-        // Colisão com parte inferior ou superior do bloco
+        // Início colisão com parte inferior ou superior do bloco
         if ((bolaX >= blocos[i][j].pos_x) &&
             (bolaX + 2 <= blocos[i][j].pos_x + blocos[i][j].tam_x)) {
           if ((bolaY <= blocos[i][j].pos_y + blocos[i][j].tam_y) &&
@@ -292,7 +301,9 @@ void detecta_colisao(Bloco blocos[COLUNA][LINHA], int *quant_blocos,
             printf("Score: %d\n", *score);
           }
         }
-        // Colisão com parte lateral do bloco
+        // Fim colisão com parte inferior ou superior do bloco
+
+        // Início colisão com parte lateral do bloco
         else if ((bolaY + 2 >= blocos[i][j].pos_y) &&
                  (bolaY <= blocos[i][j].pos_y + blocos[i][j].tam_y)) {
           if ((bolaX <= blocos[i][j].pos_x + blocos[i][j].tam_x) &&
@@ -306,6 +317,8 @@ void detecta_colisao(Bloco blocos[COLUNA][LINHA], int *quant_blocos,
             printf("Score: %d\n", *score);
           }
         }
+        // Fim colisão com parte lateral do bloco
+
         // Verifica quantidade de blocos existentes
         if (*quant_blocos == 0) {
             printf("Todos os blocos quebrados!\n");
