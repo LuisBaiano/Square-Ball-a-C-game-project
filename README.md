@@ -225,15 +225,15 @@ As bibliotecas **Stdio** **e** **Stdbool** fornecem funções para diversas tare
 
 **Intelfpgaup/video:**  Oferece funções para utilização do VGA da placa para criação de gráficos, com funções para desenho de linhas, retângulos e texto. As utilizadas foram:
 * **video_open():** abre o dispositivo de vídeo VGA;
-* **video_erase():**
-* **video_clear():**
-* **video_show():**
-* **video_text():**
-* **video_box():**
-* **video_close():**
+* **video_erase():** limpa todos e apenas os textos que estivessem escritos na tela;
+* **video_clear():** limpa todas as imagens que estivessem exibidas na tela;
+* **video_show():** exibe na tela todos os elementos dispostos no buffer de video, tais como textos ou desenhos (linhas ou retângulos/boxes);
+* **video_text():** dispõe no buffer de vídeo um texto de tamanho fixo a ser exibido na tela, selecionando-se sua posição em eixos X e Y;
+* **video_box():** dispõe no buffer de vídeo um retângulo/box a ser exibido na tela, selecionando-se os pontos iniciais e finais em coordenadas de X e Y e a cor da figura a ser gerada; 
+* **video_close():** fecha o dispositivo de vídeo VGA;
 
 **Intelfpgaup/aceel:** Oferece funções para o gerenciamento do sensor G (acelerômetro) presente na placa de desenvolvimento que movimenta a raquete, tais como:
-* **accel_open():**
+* **accel_open():** 
 * **accel_init():**
 * **accel_format():**
 * **accel_calibrate():**
