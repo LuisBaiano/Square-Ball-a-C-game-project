@@ -169,18 +169,18 @@ O processo de funcionamento do jogo acontece da seguinte forma:
 
 **Início:**
 
-* A bola é iniciada aleatoriamente no meio da tela.
+* A bola é iniciada no meio da tela.
 * A raquete é posicionada na parte inferior no meio da tela.
 
 **Movimento da bola:**
 
 * A bola se move livremente pela tela.
 * Ao colidir com blocos:
-  * Se for no meio do bloco, apenas o bloco tocado é quebrado.
-  * Se for na interseção entre blocos, todos os blocos "tocados" pela bola são quebrados.
-* Ao colidir com as paredes laterais e superior, o ângulo da bola é modificado.
+  * Se for na borda superior ou inferior do bloco, o bloco é quebrado e o sentido de movimentação da bola no eixo Y é invertido.
+  * Se for em uma das bordas laterais, o bloco é quebrado e o sentido de movimentação da bola no eixo X é invertido.
+* Ao colidir com as paredes laterais e superior, o sentido de movimentação da bola em um dos eixos é modificado.
 * Se a bola se direcionar para a parede inferior:
-  * O jogador deve movimentar a raquete para mudar o ângulo da bola e fazê-la voltar para cima.
+  * O jogador deve movimentar a raquete para refletir a movimentação da bola e fazê-la voltar para cima.
   * Se a bola não for redirecionada pela raquete, o jogo termina.
 
 **Objetivo:**
@@ -189,12 +189,12 @@ O processo de funcionamento do jogo acontece da seguinte forma:
 
 **Pausa, retomada e reinicio:**
 
-* O jogador pode pausar e retomar o jogo a qualquer momento pressionando o botão 1 ([Ver imagem da placa](#teasic-de1-soc---especificações)).
-* O jogador pode resetar o jogo pressionando o botão 4 ([Ver imagem da placa](#teasic-de1-soc---especificações)).
+* O jogador pode pausar e retomar o jogo a qualquer momento pressionando o botão mais à esquerda da placa (KEY3) ([Ver imagem da placa](#teasic-de1-soc---especificações)).
+* O jogador pode resetar o jogo pressionando o botão mais à direita da placa (KEY0) ([Ver imagem da placa](#teasic-de1-soc---especificações)).
 
 ### Solução do Problema
 
-Para a soluição do problema foi utilizada a linguagem de programação C, bem como a utilização da interface de desenvolvimento (IDE) Visual Studio Code, para a elaboração dos códigos fonte. O projeto foi sintetizado utilizando um computador de placa única, o DE1-Soc, ao qual foi conectado um monitor de tubo Dell para exibição do jogo.
+Para a solução do problema foi utilizada a linguagem de programação C, bem como a utilização da interface de desenvolvimento (IDE) Visual Studio Code, para a elaboração dos códigos fonte. O projeto foi sintetizado utilizando um computador de placa única, o DE1-Soc, ao qual foi conectado um monitor de tubo Dell para exibição do jogo.
 
 #### Bibliotecas utilizadas
 
@@ -209,7 +209,7 @@ Para auxiliar no desenvolvimento do código em C do Jogo foram utilizadas as seg
 ├── intelfpgaup/aceel.h
 ```
 
-As bibliotecas **Stdio** **e** **Stdbool** fornecem funções para diversas tarefas em C, como manipulação de entrada/saída, alocação de memória, manipulação de strings, operações de baixo nível em sistemas Unix-like e tipos booleanos.
+As bibliotecas **Stdio** **e** **Stdbool** fornecem funções para diversas tarefas em C, como manipulação de entrada/saída, operações de baixo nível em sistemas Unix-like e tipos booleanos.
 
 **Signal:** em C fornece funções para gerenciar sinais em um processo. Sinais são notificações assíncronas enviadas ao processo pelo sistema operacional ou por outros processos. Eles podem ser usados para indicar eventos como:
 
@@ -218,9 +218,9 @@ As bibliotecas **Stdio** **e** **Stdbool** fornecem funções para diversas tare
 * **Terminações de processos:** envio de sinais SIGKILL ou SIGTERM
 * **Eventos do sistema:** mudança de tamanho do terminal, recebimento de um pacote de rede
 
-**intelfpgaup/KEY:**  Ela oferece uma API simples e intuitiva para criação de jogos, com funções para gerenciamento de gráficos, som, entrada de dados e muito mais.
+**intelfpgaup/KEY:**  Oferece funções para a utilização dos botões (KEYS) da placa.
 
-**Intelfpgaup/video:**  Ela oferece uma API simples e intuitiva para criação de gráficos, com funções para desenho de sprites, linhas, retângulos, texto e muito mais.
+**Intelfpgaup/video:**  Oferece funções para utilização do VGA da placa para criação de gráficos, com funções para desenho de sprites, linhas, retângulos e texto.
 
 **Intelfpgaup/aceel:** é utilizada para o gerenciamento do sensor G (acelerômetro) presente na placa de desenvolvimento que movimenta a raquete.
 
