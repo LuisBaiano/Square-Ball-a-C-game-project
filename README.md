@@ -218,11 +218,27 @@ As bibliotecas **Stdio** **e** **Stdbool** fornecem funções para diversas tare
 * **Terminações de processos:** envio de sinais SIGKILL ou SIGTERM
 * **Eventos do sistema:** mudança de tamanho do terminal, recebimento de um pacote de rede
 
-**intelfpgaup/KEY:**  Oferece funções para a utilização dos botões (KEYS) da placa.
+**intelfpgaup/KEY:**  Oferece funções para a utilização dos botões (KEYS) da placa tais como as utilizadas:
+* **KEY_open():** abre o dispositivo para os botões;
+* **KEY_read():** lê as entradas recebidas pelo dispositivo para os botões;
+* **KEY_close():** fecha o dispositivo para os botões.
 
-**Intelfpgaup/video:**  Oferece funções para utilização do VGA da placa para criação de gráficos, com funções para desenho de sprites, linhas, retângulos e texto.
+**Intelfpgaup/video:**  Oferece funções para utilização do VGA da placa para criação de gráficos, com funções para desenho de linhas, retângulos e texto. As utilizadas foram:
+* **video_open():** abre o dispositivo de vídeo VGA;
+* **video_erase():**
+* **video_clear():**
+* **video_show():**
+* **video_text():**
+* **video_box():**
+* **video_close():**
 
-**Intelfpgaup/aceel:** é utilizada para o gerenciamento do sensor G (acelerômetro) presente na placa de desenvolvimento que movimenta a raquete.
+**Intelfpgaup/aceel:** Oferece funções para o gerenciamento do sensor G (acelerômetro) presente na placa de desenvolvimento que movimenta a raquete, tais como:
+* **accel_open():**
+* **accel_init():**
+* **accel_format():**
+* **accel_calibrate():**
+* **accel_read():**
+* **accel_close():**
 
 ### Telas do jogo
 
