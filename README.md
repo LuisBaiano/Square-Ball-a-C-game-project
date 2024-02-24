@@ -219,20 +219,23 @@ As bibliotecas **Stdio** **e** **Stdbool** fornecem funções para diversas tare
 * **Eventos do sistema:** mudança de tamanho do terminal, recebimento de um pacote de rede
 
 **intelfpgaup/KEY:**  Oferece funções para a utilização dos botões (KEYS) da placa tais como as utilizadas:
+
 * **KEY_open():** abre o dispositivo para os botões;
 * **KEY_read():** lê as entradas recebidas pelo dispositivo para os botões;
 * **KEY_close():** fecha o dispositivo para os botões.
 
 **Intelfpgaup/video:**  Oferece funções para utilização do VGA da placa para criação de gráficos, com funções para desenho de linhas, retângulos e texto. As utilizadas foram:
+
 * **video_open():** abre o dispositivo de vídeo VGA;
 * **video_erase():** limpa todos e apenas os textos que estivessem escritos na tela;
 * **video_clear():** limpa todas as imagens que estivessem exibidas na tela;
 * **video_show():** exibe na tela todos os elementos dispostos no buffer de video, tais como textos ou desenhos (linhas ou retângulos/boxes);
 * **video_text():** dispõe no buffer de vídeo um texto de tamanho fixo a ser exibido na tela, selecionando-se sua posição em eixos X e Y;
-* **video_box():** dispõe no buffer de vídeo um retângulo/box a ser exibido na tela, selecionando-se os pontos iniciais e finais em coordenadas de X e Y e a cor da figura a ser gerada; 
+* **video_box():** dispõe no buffer de vídeo um retângulo/box a ser exibido na tela, selecionando-se os pontos iniciais e finais em coordenadas de X e Y e a cor da figura a ser gerada;
 * **video_close():** fecha o dispositivo de vídeo VGA.
 
 **Intelfpgaup/aceel:** Oferece funções para o gerenciamento do sensor G (acelerômetro) presente na placa de desenvolvimento que movimenta a raquete, tais como:
+
 * **accel_open():** abre o dispositivo de acelerômetro 3D;
 * **accel_init():** inicializa o dispositivo do acelerômetro;
 * **accel_format():** configura o formato de dados oferecidos pelo acelerômetro, selecionando a resolução e o alcance G;
@@ -249,6 +252,8 @@ Abaixo são apresentadas as telas de inicio, execução do jogo, pausa e fim do 
 ## Documentação utilizada
 
 [**Manual de usuário da placa de desenvolvimento DE1-SoC:** ](https://www.terasic.com.tw/cgi-bin/page/archive.pl?Language=English&CategoryNo=167&No=836&PartNo=4#contents)Contém todas as informações relacionadas ao funcionamento da DE1-SoC, bem como são realizadas a integração da placa com demais recursos (video externo e acelerômetro).
+
+**[Manual de funções do Linux no ARM A9](https://fpgacademy.org/tutorials.html):** Utilizado para consulta das funções que foram implementadas no código fonte do jogo.
 
 ## Testes Realizados
 
