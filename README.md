@@ -230,15 +230,15 @@ As bibliotecas **Stdio** **e** **Stdbool** fornecem funções para diversas tare
 * **video_show():** exibe na tela todos os elementos dispostos no buffer de video, tais como textos ou desenhos (linhas ou retângulos/boxes);
 * **video_text():** dispõe no buffer de vídeo um texto de tamanho fixo a ser exibido na tela, selecionando-se sua posição em eixos X e Y;
 * **video_box():** dispõe no buffer de vídeo um retângulo/box a ser exibido na tela, selecionando-se os pontos iniciais e finais em coordenadas de X e Y e a cor da figura a ser gerada; 
-* **video_close():** fecha o dispositivo de vídeo VGA;
+* **video_close():** fecha o dispositivo de vídeo VGA.
 
 **Intelfpgaup/aceel:** Oferece funções para o gerenciamento do sensor G (acelerômetro) presente na placa de desenvolvimento que movimenta a raquete, tais como:
-* **accel_open():** 
-* **accel_init():**
-* **accel_format():**
-* **accel_calibrate():**
-* **accel_read():**
-* **accel_close():**
+* **accel_open():** abre o dispositivo de acelerômetro 3D;
+* **accel_init():** inicializa o dispositivo do acelerômetro;
+* **accel_format():** configura o formato de dados oferecidos pelo acelerômetro, selecionando a resolução e o alcance G;
+* **accel_calibrate():** calibra o acelerômetro 3D para a posição em que ele se encontra no momento de execução;
+* **accel_read():** faz a leitura das entradas recebidas pelo dispositivo do acelerômetro, oferecendo as medidas para os eixos X, Y e Z, fator de escala, sinais para detecção de vibração e sinal para confirmação de um novo dado;
+* **accel_close():** fecha o dispositivo de acelerômetro 3D.
 
 ### Telas do jogo
 
