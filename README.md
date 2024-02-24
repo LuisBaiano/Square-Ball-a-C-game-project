@@ -189,8 +189,8 @@ O processo de funcionamento do jogo acontece da seguinte forma:
 
 **Pausa, retomada e reinicio:**
 
-* O jogador pode pausar e retomar o jogo a qualquer momento pressionando o botão mais à esquerda da placa (KEY3) ([Ver imagem da placa](#teasic-de1-soc---especificações)).
-* O jogador pode resetar o jogo pressionando o botão mais à direita da placa (KEY0) ([Ver imagem da placa](#teasic-de1-soc---especificações)).
+* O jogador pode pausar e retomar o jogo a qualquer momento pressionando o botão mais à esquerda da placa (KEY3, ou o botão marcado com o número 1) ([Ver imagem da placa](#teasic-de1-soc---especificações)).
+* O jogador pode resetar o jogo pressionando o botão mais à direita da placa (KEY0, ou o botão marcado com o número 4) ([Ver imagem da placa](#teasic-de1-soc---especificações)).
 
 ### Solução do Problema
 
